@@ -1,6 +1,7 @@
 <pagination 
 [boundaryLinks]="true" 
 [totalItems]="totalCount" 
+[ngModel]="pageNumber"
 (pageChanged)="onPagerChange($event)"
 [itemsPerPage]="pageSize"
 previousText="&lsaquo;" 
