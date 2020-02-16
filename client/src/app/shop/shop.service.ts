@@ -17,9 +17,6 @@ export class ShopService {
   brands: IBrand[] = [];
   types: IType[] = [];
   pagination = new Pagination();
-  pageNumber: number;
-  pageSize: number;
-  totalCount: number;
   shopParams = new ShopParams();
 
   constructor(private http: HttpClient) { }
@@ -30,10 +27,13 @@ export class ShopService {
     }
 
     if (this.products.length > 0 && useCache === true) {
-      const pagesReceived = Math.floor(this.products.length / this.pagination.pageSize);
+      const pagesReceived = Math.ceil(this.products.length / this.shopParams.pageSize);
+
       if (this.shopParams.pageNumber <= pagesReceived) {
-        this.pagination.data = this.products.slice((this.shopParams.pageNumber - 1)
-          * this.shopParams.pageSize, this.shopParams.pageNumber * this.shopParams.pageSize);
+        this.pagination.data =
+          this.products.slice((this.shopParams.pageNumber - 1) * this.shopParams.pageSize,
+            this.shopParams.pageNumber * this.shopParams.pageSize);
+
         return of(this.pagination);
       }
     }
@@ -61,7 +61,6 @@ export class ShopService {
         map(response => {
           this.products = [...this.products, ...response.body.data];
           this.pagination = response.body;
-          console.log(this.pagination);
           return this.pagination;
         })
       );
