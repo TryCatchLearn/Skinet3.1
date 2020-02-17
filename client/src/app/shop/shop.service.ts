@@ -67,7 +67,6 @@ export class ShopService {
   }
 
   getShopParams() {
-    console.log(this.shopParams);
     return this.shopParams;
   }
 

@@ -10,7 +10,7 @@ import { ShopParams } from '../shared/models/shopParams';
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss']
 })
-export class ShopComponent implements OnInit, AfterViewInit {
+export class ShopComponent implements OnInit {
   @ViewChild('search', { static: false }) searchTerm: ElementRef;
   products: IProduct[];
   brands: IBrand[];
@@ -31,10 +31,6 @@ export class ShopComponent implements OnInit, AfterViewInit {
     this.getProducts(true);
     this.getBrands();
     this.getTypes();
-  }
-
-  ngAfterViewInit() {
-    this.searchTerm.nativeElement.value = this.shopParams.search || '';
   }
 
   getProducts(useCache = false) {
