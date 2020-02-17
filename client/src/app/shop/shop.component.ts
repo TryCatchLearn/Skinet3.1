@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { IProduct } from '../shared/models/product';
 import { ShopService } from './shop.service';
 import { IBrand } from '../shared/models/brand';
@@ -100,9 +100,8 @@ export class ShopComponent implements OnInit {
 
   onReset() {
     this.searchTerm.nativeElement.value = '';
-    const params = new ShopParams();
-    this.shopService.setShopParams(params);
+    this.shopParams = new ShopParams();
+    this.shopService.setShopParams(this.shopParams);
     this.getProducts();
   }
-
 }

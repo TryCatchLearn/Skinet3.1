@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace API.Helpers
 {
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class CachedAttribute : Attribute, IAsyncActionFilter
     {
         private readonly int _timeToLiveSeconds;
@@ -33,7 +34,6 @@ namespace API.Helpers
                     ContentType = "application/json",
                     StatusCode = 200
                 };
-
                 context.Result = contentResult;
 
                 return;
@@ -47,7 +47,7 @@ namespace API.Helpers
             }
         }
 
-        private string GenerateCacheKeyFromRequest(HttpRequest request)
+        private static string GenerateCacheKeyFromRequest(HttpRequest request)
         {
             var keyBuilder = new StringBuilder();
 

@@ -27,7 +27,8 @@ export class ShopService {
     }
 
     if (this.products.length > 0 && useCache === true) {
-      const pagesReceived = Math.floor(this.products.length / this.pagination.pageSize);
+      const pagesReceived = Math.ceil(this.products.length / this.shopParams.pageSize);
+
       if (this.shopParams.pageNumber <= pagesReceived) {
         this.pagination.data =
           this.products.slice((this.shopParams.pageNumber - 1) * this.shopParams.pageSize,
@@ -65,12 +66,12 @@ export class ShopService {
       );
   }
 
-  setShopParams(params: ShopParams) {
-    this.shopParams = params;
-  }
-
   getShopParams() {
     return this.shopParams;
+  }
+
+  setShopParams(params: ShopParams) {
+    this.shopParams = params;
   }
 
   getProduct(id: number) {
