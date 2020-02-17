@@ -3,4 +3,3 @@ bin
 *.db
 appsettings.json
 *.rdb
-API/wwwroot/**
