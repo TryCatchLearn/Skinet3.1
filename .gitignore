@@ -3,3 +3,7 @@ bin
 *.db
 appsettings.json
 *.rdb
+settings.json
+publish
+wwwroot
+.idea
