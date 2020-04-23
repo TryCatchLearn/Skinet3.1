@@ -30,6 +30,11 @@ const routes: Routes = [
     loadChildren: () => import('./account/account.module')
       .then(mod => mod.AccountModule), data: { breadcrumb: { skip: true } }
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module')
+      .then(mod => mod.AdminModule), data: { breadcrumb: 'Admin' }
+  },
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' }
 ];
 

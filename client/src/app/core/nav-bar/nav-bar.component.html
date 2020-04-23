@@ -1,10 +1,11 @@
 <div class="d-flex flex-column flex-md-row align-items-center justify-content-between p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm fixed-top">
   <img src="/assets/images/logo.png" style="max-height: 70px;" alt="logo" class="logo" routerLink="/">
   <nav class="my-2 my-md-0 mr-md-3 text-uppercase" style="font-size: larger;">
-    <a class="p-2" [routerLink]="['/']" routerLinkActive="active" 
+    <a class="p-2" [routerLink]="['/']" routerLinkActive="active"
       [routerLinkActiveOptions]="{exact: true}" >Home</a>
     <a class="p-2" routerLink="/shop" routerLinkActive="active">Shop</a>
     <a class="p-2" routerLink="/test-error" routerLinkActive="active">Errors</a>
+    <a class="p-2" routerLink="/admin" routerLinkActive="active">Admin</a>
   </nav>
   <div class="d-flex align-items-center">
     <a routerLink="/basket" class="position-relative">
@@ -19,7 +20,7 @@
     <ng-container *ngIf="currentUser$ | async">
       <div class="dropdown ml-3 mr-5" dropdown>
         <a class="dropdown-toggle" style="cursor: pointer" dropdownToggle>
-          <strong>Welcome {{(currentUser$ | async).displayName}}</strong>  
+          <strong>Welcome {{(currentUser$ | async).displayName}}</strong>
         </a>
         <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu>
           <a routerLink="/basket" class="dropdown-item d-flex align-items-center py-2">
@@ -34,9 +35,9 @@
           </a>
         </div>
       </div>
-    
+
     </ng-container>
 
   </div>
-  
+
 </div>

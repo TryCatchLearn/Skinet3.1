@@ -23,6 +23,7 @@
     "bootstrap": "4.1.1",
     "bootswatch": "^4.4.1",
     "font-awesome": "^4.7.0",
+    "ng2-currency-mask": "^9.0.2",
     "ngx-bootstrap": "^5.3.2",
     "ngx-spinner": "^8.1.0",
     "ngx-toastr": "^11.3.3",

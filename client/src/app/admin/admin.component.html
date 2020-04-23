@@ -1,0 +1,67 @@
+<section class="admin-page" *ngIf="products">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="d-flex justify-content-between my-3">
+          <header class="h2">Product List</header>
+          <button [routerLink]="['/admin/create']" class="btn btn-outline-success">Create new product</button>
+        </div>
+
+        <app-paging-header
+          [totalCount]="totalCount"
+          [pageSize]="this.shopParams.pageSize"
+          [pageNumber]="this.shopParams.pageNumber"
+        ></app-paging-header>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">
+                <div class="p-2">Id</div>
+              </th>
+              <th scope="col">
+                <div class="p-2 text-uppercase">Product</div>
+              </th>
+              <th scope="col">
+                <div class="py-2 text-uppercase">Name</div>
+              </th>
+              <th scope="col">
+                <div class="p-2 px-3 text-uppercase">Price</div>
+              </th>
+              <th scope="col">
+                <div class="p-2 px-3 text-uppercase">Edit</div>
+              </th>
+              <th scope="col">
+                <div class="p-2 px-3 text-uppercase">Delete</div>
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let product of products">
+              <td class="align-middle">{{product.id}}</td>
+              <td>
+                <div class="p-2">
+                  <img src="{{product.pictureUrl || '/assets/images/placeholder.png'}}" alt="{{product.name}}" class="img-fluid" style="max-height: 50px">
+                </div>
+              </td>
+              <th class="align-middle"><h5>{{product.name}}</h5></th>
+              <td class="align-middle">{{product.price | currency}}</td>
+              <td class="align-middle"><button [routerLink]="['edit', product.id]" class="btn btn-warning">Edit</button></td>
+              <td class="align-middle"><button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
+          <app-pager
+            [pageSize]="shopParams.pageSize"
+            [pageNumber]="shopParams.pageNumber"
+            [totalCount]="totalCount"
+            (pageChanged)="onPageChanged($event)"
+          ></app-pager>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
