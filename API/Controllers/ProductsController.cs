@@ -96,6 +96,8 @@ namespace API.Controllers
         {
             var product = await _unitOfWork.Repository<Product>().GetByIdAsync(id);
 
+            productToUpdate.PictureUrl = product.PictureUrl;
+            
             _mapper.Map(productToUpdate, product);
 
             _unitOfWork.Repository<Product>().Update(product);
