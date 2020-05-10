@@ -6,6 +6,7 @@ export interface IProduct {
     pictureUrl: string;
     productType: string;
     productBrand: string;
+    photos: IPhoto[];
 }
 
 export interface IProductToCreate {
@@ -27,4 +28,11 @@ export class ProductFormValues implements IProductToCreate {
   constructor(init?: ProductFormValues) {
     Object.assign(this, init);
   }
+}
+
+export interface IPhoto {
+  id: number;
+  pictureUrl: string;
+  fileName: string;
+  isMain: boolean;
 }
