@@ -24,4 +24,39 @@ label.xng-breadcrumb-trail {
     height: 3.125em;
 }
 
+.product-tabset > .nav-tabs > li.open > a, .product-tabset > .nav-tabs > li:hover > a {
+  border: 0;
+  background: none !important;
+  color: #333333;
+}
+
+.product-tabset > .nav-tabs > li.open > a > i, .product-tabset > .nav-tabs > li:hover > a > i {
+  color: #a6a6a6;
+}
+
+.product-tabset > .nav-tabs > li.open .dropdown-menu, .product-tabset > .nav-tabs > li:hover .dropdown-menu {
+  margin-top: 0px;
+}
+
+.product-tabset > .nav-tabs > li.active {
+  border-bottom: 4px solid #E95420;
+  position: relative;
+}
+
+.product-tabset > .nav-tabs > li.active > a {
+  border: 0 !important;
+  color: #333333;
+}
+
+.product-tabset > .nav-tabs > li.active > a > i {
+  color: #404040;
+}
+
+.product-tabset > .tab-content {
+  margin-top: -3px;
+  background-color: #fff;
+  border: 0;
+  border-top: 1px solid #eee;
+  padding: 15px 0;
+}
 

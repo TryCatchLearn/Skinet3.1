@@ -1,0 +1,11 @@
+.custom-dropzone {
+  border: 3px dashed #eee;
+  border-radius: 5px;
+  padding-top: 30px;
+  text-align: center;
+  height: 200px;
+}
+
+.custom-dropzone.ngx-dz-hovered {
+  border: 3px solid green;
+}
